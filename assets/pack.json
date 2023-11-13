@@ -1,0 +1,36 @@
+{
+    "preload": {
+        "files": [
+            {
+                "type": "image",
+                "key": "BackGround",
+                "url": "./assets/BackGround.jpg"
+            },
+            {
+                "type": "image",
+                "key": "RedBird",
+                "url": "./assets/RedBird.png"
+            },
+            {
+                "type": "image",
+                "key": "Pig",
+                "url": "./assets/Pig.png"
+            },
+            {
+                "type": "image",
+                "key": "Restart",
+                "url": "./assets/Restart.png"
+            },
+            {
+                "type": "image",
+                "key": "Play",
+                "url": "./assets/Play.png"
+            },
+            {
+                "type": "image",
+                "key": "Levels",
+                "url": "./assets/Levels.png"
+            }
+        ]
+    }
+}
