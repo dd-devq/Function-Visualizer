@@ -32,7 +32,6 @@ export class Bird extends Phaser.Physics.Arcade.Sprite {
 
     move() {
         if (!this.isLaunched) {
-
             this.scene.add.tween({
                 targets: this,
                 x: this.path[0].x,
@@ -55,7 +54,6 @@ export class Bird extends Phaser.Physics.Arcade.Sprite {
                 },
                 onCompleteScope: this
             })
-
         }
     }
 

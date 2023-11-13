@@ -9,6 +9,7 @@ export class GameScene extends Scene {
     private world: World
     private bird: Bird
     private pig: Pig
+
     private launchButton: Button
     private resetButton: Button
     private setCoefficientButton: Button
@@ -66,6 +67,7 @@ export class GameScene extends Scene {
 
     setupUI() {
         this.launchButton = new Button(this, 100, 145, "Play", () => {
+
             if (this.world.getPath().length > 0) {
 
                 this.bird.path = this.world.getPath()
@@ -75,6 +77,7 @@ export class GameScene extends Scene {
         })
 
         this.resetButton = new Button(this, 260, 145, "Restart", () => {
+
             this.bird.isLaunched = false
             this.world.clearGraph()
             this.bird.reset()
@@ -83,6 +86,9 @@ export class GameScene extends Scene {
         })
 
         this.setCoefficientButton = new Button(this, 380, 100, "Play", () => {
+            if (this.elementA.value == '' || this.elementB.value == '' || this.elementC.value == '') {
+                return
+            }
             const a = parseFloat(this.elementA.value)
             const b = parseFloat(this.elementB.value)
             const c = parseFloat(this.elementC.value)
@@ -91,6 +97,9 @@ export class GameScene extends Scene {
         })
 
         this.setBirdCoordinateButton = new Button(this, 180, 60, "Levels", () => {
+            if (this.elementBirdX.value == '' || this.elementBirdY.value == '') {
+                return
+            }
             const birdX = parseFloat(this.elementBirdX.value)
             const birdY = parseFloat(this.elementBirdY.value)
             const newPos = this.world.mapPosition(new Position(birdX, birdY))
@@ -98,6 +107,10 @@ export class GameScene extends Scene {
         })
 
         this.setPigCoordinateButton = new Button(this, 420, 60, "Levels", () => {
+            if (this.elementPigX.value == '' || this.elementPigY.value == '') {
+                return
+            }
+
             const pigX = parseFloat(this.elementPigX.value)
             const pigY = parseFloat(this.elementPigY.value)
             const newPos = this.world.mapPosition(new Position(pigX, pigY))
