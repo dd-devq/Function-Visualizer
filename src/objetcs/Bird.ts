@@ -1,6 +1,6 @@
 import { Position } from "./World"
 
-export class Bird extends Phaser.GameObjects.Sprite {
+export class Bird extends Phaser.Physics.Arcade.Sprite {
 
     public worldPos: Position
 
@@ -16,7 +16,17 @@ export class Bird extends Phaser.GameObjects.Sprite {
         super(scene, x, y, spriteKey)
         this.setScale(0.4)
         this.scene.add.existing(this)
+        this.scene.physics.world.enable(this)
+
         this.defaultPos = new Position(x, y)
+
+        if (this.body !== null) {
+            this.body
+                .setSize(
+                    this.width * 0.2,
+                    this.height * 0.2
+                )
+        }
     }
 
 

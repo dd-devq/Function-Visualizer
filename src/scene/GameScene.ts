@@ -57,8 +57,11 @@ export class GameScene extends Scene {
 
         this.setupUI()
         this.setupInput()
-    }
 
+        this.physics.add.collider(this.bird, this.pig, () => {
+            this.pig.alpha = 0
+        }, undefined, this)
+    }
 
 
     setupUI() {
@@ -76,6 +79,7 @@ export class GameScene extends Scene {
             this.world.clearGraph()
             this.bird.reset()
             this.resetInput()
+            this.pig.alpha = 1
         })
 
         this.setCoefficientButton = new Button(this, 380, 100, "Play", () => {
