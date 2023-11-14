@@ -12,8 +12,9 @@ export class GameScene extends Scene {
     private launchButton: Button
     private resetButton: Button
     private setCoefficientButton: Button
-    private setBirdCoordinateButton: Button
-    private setPigCoordinateButton: Button
+    // private setBirdCoordinateButton: Button
+    // private setPigCoordinateButton: Button
+    private setBirdAndPig:Button
 
     private elementBirdX: HTMLInputElement
     private elementBirdY: HTMLInputElement
@@ -65,7 +66,7 @@ export class GameScene extends Scene {
 
 
     setupUI() {
-        this.launchButton = new Button(this, 100, 145, "Play", () => {
+        this.launchButton = new Button(this, 240, 155, "Play", () => {
             if (this.world.getPath().length > 0) {
 
                 this.bird.path = this.world.getPath()
@@ -74,7 +75,7 @@ export class GameScene extends Scene {
             }
         })
 
-        this.resetButton = new Button(this, 260, 145, "Restart", () => {
+        this.resetButton = new Button(this, 95, 155, "Restart", () => {
             this.bird.isLaunched = false
             this.world.clearGraph()
             this.bird.reset()
@@ -82,7 +83,7 @@ export class GameScene extends Scene {
             this.pig.alpha = 1
         })
 
-        this.setCoefficientButton = new Button(this, 380, 100, "Play", () => {
+        this.setCoefficientButton = new Button(this, 360, 105, "Play", () => {
             const a = parseFloat(this.elementA.value)
             const b = parseFloat(this.elementB.value)
             const c = parseFloat(this.elementC.value)
@@ -90,28 +91,40 @@ export class GameScene extends Scene {
             this.world.drawQuadraticFunction(a, b, c)
         })
 
-        this.setBirdCoordinateButton = new Button(this, 180, 60, "Levels", () => {
+        // this.setBirdCoordinateButton = new Button(this, 180, 60, "Levels", () => {
+        //     const birdX = parseFloat(this.elementBirdX.value)
+        //     const birdY = parseFloat(this.elementBirdY.value)
+        //     const newPos = this.world.mapPosition(new Position(birdX, birdY))
+        //     this.bird.setPosition(newPos.x, newPos.y)
+        // })
+
+        // this.setPigCoordinateButton = new Button(this, 420, 60, "Levels", () => {
+        //     const pigX = parseFloat(this.elementPigX.value)
+        //     const pigY = parseFloat(this.elementPigY.value)
+        //     const newPos = this.world.mapPosition(new Position(pigX, pigY))
+        //     this.pig.setPosition(newPos.x, newPos.y)
+        // })
+
+        this.setBirdAndPig = new Button(this, 530, 50, "Levels", () => {
             const birdX = parseFloat(this.elementBirdX.value)
             const birdY = parseFloat(this.elementBirdY.value)
-            const newPos = this.world.mapPosition(new Position(birdX, birdY))
-            this.bird.setPosition(newPos.x, newPos.y)
-        })
-
-        this.setPigCoordinateButton = new Button(this, 420, 60, "Levels", () => {
+            const newPosBird = this.world.mapPosition(new Position(birdX, birdY))
             const pigX = parseFloat(this.elementPigX.value)
             const pigY = parseFloat(this.elementPigY.value)
-            const newPos = this.world.mapPosition(new Position(pigX, pigY))
-            this.pig.setPosition(newPos.x, newPos.y)
+            const newPosPig = this.world.mapPosition(new Position(pigX, pigY))
+            this.bird.setPosition(newPosBird.x, newPosBird.y)
+            this.pig.setPosition(newPosPig.x, newPosPig.y)
         })
 
         this.add.bitmapText(10, 15, "MarioFont", "Bird Coordinate", 12)
-        this.add.bitmapText(250, 15, "MarioFont", "Pig Coordinate", 12)
-        this.add.bitmapText(10, 140, "MarioFont", "Launch", 12)
-        this.add.bitmapText(170, 140, "MarioFont", "Reset", 12)
+        this.add.bitmapText(240, 15, "MarioFont", "Pig Coordinate", 12)
+        this.add.bitmapText(450, 15, "MarioFont", "Set Position", 12)
+        this.add.bitmapText(150, 150, "MarioFont", "Launch", 12)
+        this.add.bitmapText(20, 150, "MarioFont", "Reset", 12)
 
-        this.add.bitmapText(10, 95, "MarioFont", "A", 20)
-        this.add.bitmapText(130, 95, "MarioFont", "B", 20)
-        this.add.bitmapText(250, 95, "MarioFont", "C", 20)
+        this.add.bitmapText(60, 95, "MarioFont", "X2", 20)
+        this.add.bitmapText(150, 95, "MarioFont", "X", 20)
+        this.add.bitmapText(230, 100, "MarioFont", "ShowGraph", 12)
     }
 
     setupInput() {

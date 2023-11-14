@@ -47,7 +47,7 @@ export class Bird extends Phaser.Physics.Arcade.Sprite {
                             y: this.path[i].y,
                             duration: 50,
                             ease: 'sine.inout',
-                            delay: i * 50,
+                            delay: i * 30,
                             onCompleteScope: this
                         })
                     }
