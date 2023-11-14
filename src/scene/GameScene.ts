@@ -9,6 +9,7 @@ export class GameScene extends Scene {
     private world: World
     private bird: Bird
     private pig: Pig
+
     private launchButton: Button
     private resetButton: Button
     private setCoefficientButton: Button
