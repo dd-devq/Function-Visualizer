@@ -35,12 +35,17 @@
       margin: 0;
       background-color: #000000;
     }
-
     canvas {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+    #chimse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
   </style>
 
@@ -48,17 +53,16 @@
 </head>
 
 <body>
-  <div id="game">
-  </div>
-  <input placeholder="X" id="birdX" style="width: 50px; height: 25px; position: absolute; top: 170px; left: 30px;">
-  <input placeholder="Y" id="birdY" style="width: 50px; height: 25px; position: absolute; top: 170px; left: 110px;">
-
-  <input placeholder="X" id="pigX" style="width: 50px; height: 25px; position: absolute; top: 170px; left:270px;">
-  <input placeholder="Y" id="pigY" style="width: 50px; height: 25px; position: absolute; top: 170px; left: 350px;">
-
-  <input placeholder="A" id="CoeffA" style="width: 50px; height: 25px; position: absolute; top: 210px; left:70px;">
-  <input placeholder="B" id="CoeffB" style="width: 50px; height: 25px; position: absolute; top: 210px; left:190px;">
-  <input placeholder="C" id="CoeffC" style="width: 50px; height: 25px; position: absolute; top: 210px; left: 310px;">
+  <div id="game"> <!width: 1280,height: 720,></div>
+<div id="chimse" style="width:1280px; height:720px; margin:auto">
+  <input placeholder="X" id="birdX" style="width: 30px; height: 25px; position: absolute; top: 30px; left: 50px;">
+  <input placeholder="Y" id="birdY" style="width: 30px; height: 25px; position: absolute; top: 30px; left: 100px;">
+  <input placeholder="X" id="pigX" style="width: 30px; height: 25px; position: absolute; top: 30px; left:280px;">
+  <input placeholder="Y" id="pigY" style="width: 30px; height: 25px; position: absolute; top: 30px; left:330px;">
+  <input placeholder="A" id="CoeffA" style="width: 30px; height: 25px; position: absolute; top: 87px; left:20px;">
+  <input placeholder="B" id="CoeffB" style="width: 30px; height: 25px; position: absolute; top: 87px; left:110px;">
+  <input placeholder="C" id="CoeffC" style="width: 30px; height: 25px; position: absolute; top: 87px; left:180px;">
+</div>
 </body>
 
 </html>
